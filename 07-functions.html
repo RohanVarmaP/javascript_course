@@ -12,6 +12,11 @@
             console.log("Hello, in function1.");
         }
         function1();
+        function calTax(cost,taxPercentage=0.1) {
+            return cost*taxPercentage
+        }
+        console.log(calTax(5000,0.5))
+        console.log(calTax(40000))
     </script>
 </body>
 </html>

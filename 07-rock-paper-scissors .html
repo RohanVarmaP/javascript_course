@@ -8,33 +8,40 @@
 <body>
     <h1>Rock paper Scissors</h1>
     <button onclick="
-        compareOdds('rock')
+        const result=gameResult('rock');
+        alert(result);
+        console.log(result);
     ">
         Rock
     </button>
     <button onclick="
-        compareOdds('paper')
+        const result =gameResult('paper');
+        alert(result);
+        console.log(result);
     ">
         Paper
     </button>
     <button onclick="
-        compareOdds('scissor')
+        const result=gameResult('scissor');
+        alert(result);
+        console.log(result);
     ">
         Scissors
     </button>
     <button onclick="
-        alert(`Number of times computer won: ${computerWins}.\nNumber of times You won: ${userWins}.\nNumber of times Game Tied: ${tied}`);
-        console.log(`Number of times computer won: ${computerWins}.\nNumber of times You won: ${userWins}.\nNumber of times Game Tied: ${tied}`);
+        const result=`Number of times computer won: ${computerWins}.\nNumber of times You won: ${userWins}.\nNumber of times Game Tied: ${tied}`;
+        alert(result);
+        console.log(result);
     ">Display Scores</button>
     <button onclick="
         computerWins=0;
         userWins=0;
         tied=0;
-        alert('The Score is resetted to Zero');
-        console.log('The Score is resetted to Zero');
+        alert('The Score is reset to Zero');
+        console.log('The Score is reset to Zero');
     ">Reset Scores</button>
     <script>
-        function compareOdds(user){
+        function gameResult(user){
             const num=Math.random()
             let computer='';
             if (num<1/3){
@@ -44,19 +51,18 @@
             }else{
                 computer='rock'
             }
+            let result='';
             if ((user==='rock' && computer==='scissor')||(user==='paper' && computer==='rock')||(user==='scissor' && computer==='paper')){
-                alert(`You choose ${user} and computer choose ${computer}.\nYou Won.`);
-                console.log(`You choose ${user} and computer choose ${computer}.\nYou Won.`);
+                result='You Won.';
                 userWins++;
             }else if ((user==='rock' && computer==='paper')||(user==='paper' && computer==='scissor')||(user==='scissor' && computer==='rock')){
-                alert(`You choose ${user} and computer choose ${computer}.\nYou Lost.`);
-                console.log(`You choose ${user} and computer choose ${computer}.\nYou Lost.`);
+                result='You Lost.';
                 computerWins++;
             }else{
-                alert(`You choose ${user} and computer choose ${computer}.\nIt\'s a Tie.`);
-                console.log(`You choose ${user} and computer choose ${computer}.\nIt\'s a Tie.`);
+                result='It\'s a Tie.';
                 tied++;
             }
+            return `You choose ${user} and computer choose ${computer}.\n ${result}`
         }
         let computerWins=0;
         let userWins=0;
