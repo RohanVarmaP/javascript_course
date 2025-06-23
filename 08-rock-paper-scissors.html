@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Game</title>
+</head>
+<body>
+    <h1>Rock paper Scissors</h1>
+    <button onclick="
+        const result=gameResult('rock');
+        alert(result);
+        console.log(result);
+    ">
+        Rock
+    </button>
+    <button onclick="
+        const result =gameResult('paper');
+        alert(result);
+        console.log(result);
+    ">
+        Paper
+    </button>
+    <button onclick="
+        const result=gameResult('scissor');
+        alert(result);
+        console.log(result);
+    ">
+        Scissors
+    </button>
+    <button onclick="
+        const result=`Number of times computer won: ${score.loses}.\nNumber of times You won: ${score.wins}.\nNumber of times Game Tied: ${score.ties}`;
+        alert(result);
+        console.log(result);
+    ">Display Scores</button>
+    <button onclick="
+        score.wins=0;
+        score.loses=0;
+        score.ties=0;
+        alert('The Score is reset to Zero');
+        console.log('The Score is reset to Zero');
+        localStorage.removeItem('score');
+    ">Reset Scores</button>
+    <script>
+        console.log(localStorage.getItem('score'));
+        function gameResult(user){
+            const num=Math.random()
+            let computer='';
+            if (num<1/3){
+                computer='paper'
+            }else if (1/3<num && num<2/3){
+                computer='scissor'
+            }else{
+                computer='rock'
+            }
+            let result='';
+            if ((user==='rock' && computer==='scissor')||(user==='paper' && computer==='rock')||(user==='scissor' && computer==='paper')){
+                result='You Won.';
+                score.wins++;
+            }else if ((user==='rock' && computer==='paper')||(user==='paper' && computer==='scissor')||(user==='scissor' && computer==='rock')){
+                result='You Lost.';
+                score.loses++;
+            }else{
+                result='It\'s a Tie.';
+                score.ties++;
+            }
+            localStorage.setItem('score',JSON.stringify(score));
+            return `You choose ${user} and computer choose ${computer}.\n ${result}\nWins:${score.wins}, Losses:${score.loses}, Ties: ${score.ties}`
+        }
+        const score=JSON.parse(localStorage.getItem('score')) || {wins:0,loses:0,ties:0};
+    </script>
+</body>
+</html>

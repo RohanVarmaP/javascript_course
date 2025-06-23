@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <h1>Objects</h1>
+    <script>
+        const product={
+            name:'socks',
+            price:300
+        };
+        console.log(product);
+        console.log(product.name);
+        console.log(product.price);
+
+        product.name='cotton socks';
+        console.log(product);
+
+        product.materialUsed='cotton';
+        console.log(product);
+
+        delete product.materialUsed;
+        console.log(product);
+
+        const product2={
+            name:"shirt",
+            'delivery-time':'1-day',
+            rating:{
+                stars:4.5,
+                count:87
+            },
+            fun: function function1(){
+                console.log("this is a function in a object");
+            }
+        };
+        console.log(product2);
+        console.log(product2['name']);
+        console.log(product2['delivery-time']);
+        console.log(product2.rating);
+        console.log(product2.rating.stars);
+        console.log(product2.fun);
+        product2.fun();
+
+        console.log(typeof JSON.stringify(product2));
+        console.log(JSON.stringify(product2));
+
+        console.log(JSON.parse(JSON.stringify(product2)));
+
+        console.log('hello'.length);
+        console.log('hello'.toUpperCase());
+
+        const ob1={};
+        const ob2=ob1;
+        ob1.message='hello';
+        console.log(ob1);
+        console.log(ob2);
+        const ob3={
+            message:'hello'
+        };
+        console.log(ob3);
+        console.log(ob1===ob3);
+        console.log(ob1===ob2);
+
+        ob3.price=1350;
+        const {message,price}=ob3;//this will do const message=ob3.message,const price=ob3.price
+        console.log(message);
+        console.log(price);
+        console.log(ob3);
+
+        const ob4={
+            message,//this will save message:'message'
+            /* method: function fun1(){
+                console.log("inside of ob4");
+             },*/
+            method(){
+                console.log("method in ob4");
+            }
+        };
+        console.log(ob4);
+        ob4.method();
+    </script>
+</body>
+</html>
