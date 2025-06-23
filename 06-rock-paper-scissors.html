@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Game</title>
+</head>
+<body>
+    <h1>Rock paper Scissors</h1>
+    <button onclick="
+        const num=Math.random()
+        if (num<1/3){
+            alert('Computer choose Paper.\nYou Lost.')
+            console.log('Computer choose Paper.\nYou Lost.');
+            computerWins++;
+        }else if (1/3<num && num<2/3){
+            alert('Computer choose Scissors.\nYou Won.')
+            console.log('Computer choose Scissors.\nYou Won.');
+            userWins++;
+        }else{
+            alert('Computer choose Rock.\nIt\'s tied.')
+            console.log('Computer choose Rock.\nIt\'s tied.');
+            Tied++;
+        }
+    ">
+        Rock
+    </button>
+    <button onclick="
+        const num=Math.random()
+        if (num<1/3){
+            alert('Computer choose Paper.\nIt\'s Tied.')
+            console.log('Computer choose Paper.\nIt\s Tied.');
+            tied++;
+        }else if (1/3<num && num<2/3){
+            alert('Computer choose Scissors.\nYou Lost.')
+            console.log('Computer choose Scissors.\nYou Lost.');
+            computerWins++;
+        }else{
+            alert('Computer choose Rock.\nYou Won.')
+            console.log('Computer choose Rock.\nYou Won.');
+            userWins++;
+        }
+    ">
+        Paper
+    </button>
+    <button onclick="
+        const num=Math.random()
+        if (num<1/3){
+            alert('Computer choose Paper.\nYou Won.')
+            console.log('Computer choose Paper.\nYou Won.');
+            userWins++;
+        }else if (1/3<num && num<2/3){
+            alert('Computer choose Scissors.\nIt\'s tied.')
+            console.log('Computer choose Scissors.\nIt\'s tied.');
+            tied++;
+        }else{
+            alert('Computer choose Rock.\nYou Lost.')
+            console.log('Computer choose Rock.\nYou Lost.');
+            computerWins++;
+        }
+    ">
+        Scissors
+    </button>
+    <button onclick="
+        alert(`Number of times computer won: ${computerWins}.\nNumber of times You won: ${userWins}.\nNumber of times Game Tied: ${tied}`);
+        console.log(`Number of times computer won: ${computerWins}.\nNumber of times You won: ${userWins}.\nNumber of times Game Tied: ${tied}`);
+    ">Display Scores</button>
+    <button onclick="
+        computerWins=0;
+        userWins=0;
+        tied=0;
+        alert('The Score is resetted to Zero');
+        console.log('The Score is resetted to Zero');
+    ">Reset Scores</button>
+    <script>
+        let computerWins=0;
+        let userWins=0;
+        let tied=0;
+    </script>
+</body>
+</html>

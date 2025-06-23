@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booleans</title>
+</head>
+<body>
+
+    <script>
+        console.log(3===5);
+        console.log(3!==5);
+        console.log(typeof true);
+        console.log(typeof 'true');
+        console.log(3=='3.00');//here == will convert "3.00" into int to match and gives true
+        console.log(3==='3.00');//it will give false
+        console.log(3===5);
+        console.log(3===5-2);
+        if (false){
+            console.log("its True");
+        }else{
+            console.log("its False");
+        }
+        const age=18;
+        if (age>18){
+            console.log("You can drive.");
+        }else if (age===18){
+            console.log("You need to learn to drive.")
+        } else{
+            console.log("You can't drive.");
+        }
+        console.log("logical Operator");
+        console.log("answer for (3<5 && 2===10/5)");
+        console.log(3<5 && 2===10/5);
+        console.log("answer for (3===5 && 2===10/5)");
+        console.log(3===5 && 2===10/5);
+        console.log("answer for (3<5 || 2===10/2)");
+        console.log(3==5 || 2===10/5);
+        console.log("answer for (3===5 || 2===10/2)");
+        console.log(3===5 || 2===10/2);
+        console.log("? Operator");
+        console.log("answer for (true ? 'True value' : 'False value')");
+        console.log(true ? "True value" : "False value");
+        console.log("&& Operator");
+        console.log("true && console.log('True value');");
+        true && console.log('True value');
+        console.log("false && console.log('True value');");
+        false && console.log('True value');
+        console.log("|| Operator");
+        console.log("let message1= 'hello' || 'hi");
+        let message1= 'hello' || 'hi';
+        true && console.log(message1);
+        console.log("let message2= '' || 'hi");
+        let message2= '' || 'hi';
+        true && console.log(message2);
+    </script>
+</body>
+</html>

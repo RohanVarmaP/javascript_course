@@ -21,11 +21,21 @@
     console.log(`The numberof items in cart are ${cartQuantity}`);
     ">+3</button>
     <button onclick="
-    cartQuantity-=2;
+    if (cartQuantity <= 2) {
+        console.log('The numberof items in cart is less or equal to 2.  so resettig to ZERO');
+        cartQuantity=0;
+    }else{
+        cartQuantity-=2;
+    }
     console.log(`The numberof items in cart are ${cartQuantity}`);
     ">-2</button>
     <button onclick="
-    cartQuantity-=3;
+    if (cartQuantity <= 3) {
+         console.log('The numberof items in cart is less or equal to 3. so resettig to ZERO');
+        cartQuantity=0;
+    }else{
+        cartQuantity-=3;
+    }
     console.log(`The numberof items in cart are ${cartQuantity}`);
     ">-3</button>
     <button onclick="
