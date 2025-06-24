@@ -14,6 +14,24 @@
         console.log(myarr[0]);
         myarr[0]=10000;
         console.log(myarr);
+        console.log(typeof ['a','b',1,2,{name:"person"}]);
+        console.log(Array.isArray([1,2,3,'a','d']));
+        console.log(Array.isArray({1:2,3:'a',b:'c'}));
+        console.log(myarr.length);
+        myarr.push(100);
+        console.log(myarr);
+        myarr.splice(0,2);//removes two elements from index 0
+        console.log(myarr)
+       let i=0;
+       console.log("while loop")
+       while(i<10){
+        console.log(i);
+        i++;
+       }
+       console.log("for loop")
+       for (let i=0; i<10; i++){
+        console.log(i);
+       }
     </script>
 </body>
 </html>

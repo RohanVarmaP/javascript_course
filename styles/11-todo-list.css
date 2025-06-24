@@ -1,0 +1,32 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.todo-grid,.todo-grid-input{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 200px 150px 100px;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+}
+.todo-grid{
+    margin-bottom: 10px;
+    align-items: stretch;
+}
+.input-text,.input-date{
+    font-size: 15px;
+    padding: 5px;
+}
+.add,.delete{
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+.add{
+    background-color: green;
+}
+.delete{
+    background-color: red;
+    padding: 10px;
+}
