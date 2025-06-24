@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Functions</title>
+</head>
+<body>
+    <h1>Advanced Functions</h1>
+    <button class="js-start-button" onclick="started()">Start</button>
+    <button class="js-addToCart-button" onclick="addTocart()">Add to Cart</button>
+    <p class="js-below-button"></p>
+    <button class="js-add-button" onclick="addMessage()">Add Messages</button>
+    <button class="js-remove-button" onclick="deleteMessage()">Remove Messages</button>
+    <script>
+        /*
+        function fun(){
+            console.log("fun");
+        }
+        fun();
+        const fun2=function(){
+            console.log("fun2");
+        };
+        fun2();
+        setTimeout(fun2, 10000);
+        console.log('next line.');
+        setInterval(fun2,10000);*/
+        /*[
+            'hello',
+            'hi',
+            'good',
+            'day'
+        ].forEach(function(value,num){
+            if (value==='hi'){return}
+            console.log(num)
+            console.log(value)
+        });
+        */
+       function started(){
+        const buttonElement=document.querySelector('.js-start-button');
+        console.log(buttonElement);
+        buttonElement.innerHTML='Loading';
+        setTimeout(function(){
+            buttonElement.innerHTML='Finished';
+        },2000)
+       }
+       let settimeid;
+       function addTocart(){
+        const paraElement=document.querySelector('.js-below-button');
+        console.log(paraElement);
+        paraElement.innerHTML='Added';
+        if (settimeid){clearTimeout(settimeid);}
+        settimeid= setTimeout(function(){
+            paraElement.innerHTML='';
+        },2000)
+       }
+       messages=localStorage.getItem('messages')||0;
+       function addMessage(){
+        messages++;
+        console.log(`+messages ${messages}`);
+        localStorage.setItem('messages',messages);
+        getStarted();
+       }
+       function deleteMessage(){
+        if(messages>0){
+            messages--;
+            console.log(`-messages ${messages}`);
+        localStorage.setItem('messages',messages);
+        getStarted();
+        }
+       }
+       let intervelid;
+       function getStarted(){
+            if (intervelid){
+                clearInterval(intervelid);
+            }
+            intervelid=setInterval(function(){
+                if(messages>=1 ){
+                    if (document.title==='Advanced Functions'){
+                        console.log("document.title");
+                        document.title=`(${messages}) messages`;
+                    }else{
+                        console.log("document.title");
+                        document.title=`Advanced Functions`;
+                    }
+                    
+                }
+
+            },1000)
+        }
+        getStarted();
+    </script>
+</body>
+</html>
