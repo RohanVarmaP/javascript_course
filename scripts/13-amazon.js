@@ -84,7 +84,7 @@ products.forEach((product)=>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary js-add-to-cart" data-product-name="${product.name}"
+          <button class="add-to-cart-button button-primary js-add-to-cart"
           data-product-id="${product.id}">
             Add to Cart
           </button>
@@ -110,7 +110,6 @@ document.querySelectorAll('.js-add-to-cart').forEach((buttonElement)=>{
             matchingItem.quantity+=addQuantity;
         }else{
             cart.push({
-                name:buttonElement.dataset.productName,
                 id:buttonElement.dataset.productId,
                 quantity:addQuantity
             });
