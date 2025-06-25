@@ -1,32 +1,41 @@
-const products=[
-    {
-        image:'images/products/athletic-cotton-socks-6-pairs.jpg',
-        name:'Black and Gray Athletic Cotton Socks - 6 Pairs',
-        rating:{
-            starts:'images/ratings/rating-45.png',
-            count:87
-        },
-        price:1090
-    },
-    {
-        image:'images/products/intermediate-composite-basketball.jpg',
-        name:'Intermediate Size Basketball',
-        rating:{
-            starts:'images/ratings/rating-40.png',
-            count:127
-        },
-        price:2095
-    },
-    {
-        image:'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-        name:'Adults Plain Cotton T-Shirt - 2 Pack',
-        rating:{
-            starts:'images/ratings/rating-45.png',
-            count:56
-        },
-        price:799
-    }
-];
+// const products=[
+//     {
+//         image:'images/products/athletic-cotton-socks-6-pairs.jpg',
+//         name:'Black and Gray Athletic Cotton Socks - 6 Pairs',
+//         rating:{
+//             starts:4.5,
+//             count:87
+//         },
+//         price:1090
+//     },
+//     {
+//         image:'images/products/intermediate-composite-basketball.jpg',
+//         name:'Intermediate Size Basketball',
+//         rating:{
+//             starts:4.0,
+//             count:127
+//         },
+//         price:2095
+//     },
+//     {
+//         image:'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
+//         name:'Adults Plain Cotton T-Shirt - 2 Pack',
+//         rating:{
+//             starts:4.5,
+//             count:56
+//         },
+//         price:799
+//     },
+//     {
+//         image:'images/products/black-2-slot-toaster.jpg',
+//         name:'2 Slot Toaster-Black',
+//         rating:{
+//             starts:5.0,
+//             count:2197
+//         },
+//         price:1899
+//     }
+// ];
 const divProductElement=document.querySelector('.js-product-grid');
 console.log(divProductElement);
 products.forEach((product)=>{
@@ -43,14 +52,14 @@ products.forEach((product)=>{
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="${product.rating.starts}">
+              src="images/ratings/rating-${product.rating.stars*10}.png">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            $${(product.price/100).toFixed(2)}
+            $${(product.priceCents/100).toFixed(2)}
           </div>
 
           <div class="product-quantity-container">
