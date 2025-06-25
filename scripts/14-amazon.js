@@ -1,4 +1,5 @@
 import {cart as myCart} from './cart.js';
+import { products } from './products.js';
 
 const divProductElement=document.querySelector('.js-product-grid');
 console.log(divProductElement);
