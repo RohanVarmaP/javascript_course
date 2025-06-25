@@ -32,6 +32,58 @@ function gameResult(user,uphoto){
     return `You choose ${user} and computer choose ${computer}.\n ${result}\nWins:${score.wins}, Losses:${score.loses}, Ties: ${score.ties}`
 }
 
+document.querySelector('.js-rock-button').addEventListener('click',()=>{
+    const result=gameResult('rock','images/rock.jpg');
+    //alert(result);
+    console.log(result);
+})
+
+document.querySelector('.js-paper-button').addEventListener('click',()=>{
+    const result =gameResult('paper','images/paper.jpg');
+    //alert(result);
+    console.log(result);
+})
+
+document.querySelector('.js-scissors-button').addEventListener('click',()=>{
+    const result=gameResult('scissor','images/scissors.jpg');
+    //alert(result);
+    console.log(result);
+})
+
+document.querySelector('.js-reset-button').addEventListener('click',()=>{
+    score.wins=0;
+    score.loses=0;
+    score.ties=0;
+    //alert('The Score is reset to Zero');
+    console.log('The Score is reset to Zero');
+    localStorage.removeItem('score');
+    updateScoreElement();
+    document.querySelector('.js-result').innerHTML='';
+    document.querySelector('.js-moves').innerHTML='';
+})
+
+document.querySelector('.js-autoplay').addEventListener('click',()=>{
+    autoPlay();
+})
+
+document.body.addEventListener('keydown',(event)=>{
+    if (event.key==='r'){
+        const result=gameResult('rock','images/rock.jpg');
+        //alert(result);
+        console.log(result);
+    } else if(event.key==='p'){
+        const result =gameResult('paper','images/paper.jpg');
+        //alert(result);
+        console.log(result);
+    }else if(event.key==='s'){
+        const result=gameResult('scissor','images/scissors.jpg');
+        //alert(result);
+        console.log(result);
+    }else{
+        console.log("if you want to play click 'r,p,s,'.")
+    }
+})
+
 const score=JSON.parse(localStorage.getItem('score')) || {wins:0,loses:0,ties:0};
 
 function updateScoreElement(){

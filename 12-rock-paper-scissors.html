@@ -8,44 +8,20 @@
 </head>
 <body>
     <h1>Rock paper Scissors</h1>
-    <button class="move-button" onclick="
-        const result=gameResult('rock','images/rock.jpg');
-        //alert(result);
-        console.log(result);
-    ">
+    <button class="move-button js-rock-button">
         <img class="move-button" src="images/rock.jpg" alt="Rock">
     </button>
-    <button class="move-button" onclick="
-        const result =gameResult('paper','images/paper.jpg');
-        //alert(result);
-        console.log(result);
-    ">
+    <button class="move-button js-paper-button">
         <img class="move-button" src='images/paper.jpg' alt="Paper">
     </button>
-    <button class="move-button" onclick="
-        const result=gameResult('scissor','images/scissors.jpg');
-        //alert(result);
-        console.log(result);
-    ">
+    <button class="move-button js-scissors-button">
         <img class="move-button" src="images/scissors.jpg" alt="Scissors">
     </button>
     <p class="js-result result"></p>
     <p class="js-moves moves"></p>
     <p class="js-score score"></p>
-    <button class="score-reset" onclick="
-        score.wins=0;
-        score.loses=0;
-        score.ties=0;
-        //alert('The Score is reset to Zero');
-        console.log('The Score is reset to Zero');
-        localStorage.removeItem('score');
-        updateScoreElement();
-        document.querySelector('.js-result').innerHTML='';
-        document.querySelector('.js-moves').innerHTML='';
-    ">Reset Scores</button>
-    <button class="js-autoplay score-reset" onclick="
-        autoPlay();
-    ">Start Autoplay</button>
+    <button class="score-reset js-reset-button">Reset Scores</button>
+    <button class="js-autoplay score-reset">Start Autoplay</button>
     <script src="scripts/12-rock-paper-scissors.js"></script>
 </body>
 </html>

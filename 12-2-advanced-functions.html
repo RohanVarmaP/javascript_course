@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Functions</title>
+</head>
+<body>
+    <h1>Advanced Functions</h1>
+    <button class="js-button" onclick="">Click</button>
+    <script>
+        /*
+        const regularFunction=function(parameter){
+            console.log('regular '+parameter);
+        }
+        const arrowfunction = (parameter)=>{
+        console.log('arrow '+parameter);
+        }
+        regularFunction(26);
+        arrowfunction(13);
+        const onepara=para=>{//no need for () if there is only one paramenter in a function
+        console.log(para-1)
+        }
+        onepara(12);
+        const oneline=(a,b)=>a+b
+        console.log(oneline(1,2));
+        const obj2={
+        method:()=>{console.log('method in ob1');},
+        method(){console.log('method in ob1');}
+        }
+        */
+        /*
+        const buttonElement=document.querySelector('.js-button');
+        const firstEvent=()=>{console.log('click');};
+        buttonElement.addEventListener('click',firstEvent)
+        buttonElement.addEventListener('click',()=>{console.log('click2');})
+        buttonElement.removeEventListener('click',firstEvent)
+        */
+        console.log([1,-2,5].filter((value,index)=>{
+            /*if (value<0){
+                return false
+            }else{
+                return true
+            }*/
+            return value>=0;
+        }))
+        console.log([1,2,3].map((value,index)=>{
+            return value*2;
+        }))
+        console.log([1,2,3].map(value => value*2))
+        
+        console.log('12j,k');
+        const multiply=(num1,num2)=>num1*num2;
+        console.log(multiply(5,6));
+        
+        console.log('12i');
+        const count=arr=>{
+            let result=0;
+            for(let i=0;i<=arr.length;i++){
+                if (arr[i]>0){result++;}
+            }
+            return result
+        };
+        console.log(count([1,0,-1,-2,5,8,-10]));
+        
+        console.log('12m');
+        const addNum=(arr,num)=>{
+            arr=arr.map(value=>value+num)
+            return arr
+        }
+        console.log(addNum([1,2,3,4,5],6));
+        
+        console.log('12n');
+        const reoveEgg=arr=>{
+            arr=arr.filter(value=>value!=='egg')
+            return arr
+        }
+        console.log(reoveEgg(['egg','chicken','curry','egg','bugi']));
+
+        console.log('12o');
+        const reove2Egg=arr=>{
+            let flag=2
+            arr=arr.filter(value=>{
+                if (value==='egg' && flag>0){
+                    return;
+                }
+                flag--;
+                return value;
+            })
+            return arr
+        }
+        console.log(reove2Egg(['egg','chicken','egg','apple','curry','egg','bugi']));
+    </script>
+</body>
+</html>

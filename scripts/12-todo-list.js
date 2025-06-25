@@ -44,8 +44,28 @@ function addToList(task){
         updateDiv('final');
         return finalTodo
     }
-    
 }
+document.querySelector('.js-task1-button').addEventListener('click',()=>{
+    addToList('task1');
+})
+document.querySelector('.js-task2-button').addEventListener('click',()=>{
+    addToList('task2');
+});
+document.querySelector('.js-task3-button').addEventListener('click',()=>{
+    addToList('task3');
+})
+document.querySelector('.js-task4-button').addEventListener('click',()=>{
+    addToList('task4');
+})
+document.querySelector('.js-final-task-button').addEventListener('click',()=>{
+    addToList('finaltask');
+})
+document.querySelector('.js-get-minmax').addEventListener('click',()=>{
+    updateMinMax();
+})
+document.querySelector('.js-get-repeating').addEventListener('click',()=>{
+    updateReapeat();
+})
 function handleKeyDown(event){
     if (event.key==='Enter' && event.target.className==='js-input-task1'){
         addToList('task1');
@@ -67,21 +87,25 @@ function updateDiv(key=null){
             const {name,date}=todoobject;
             html+=`<div>${name}</div>
             <div>${date}</div>
-            <button class="delete" 
-            onclick="finalTodo.splice(${index},1);
-            updateDiv('final');">Delete</button>`;
+            <button class="delete js-task-delete">Delete</button>`;
         })
         /* 
         for (let i=0;i<finalTodo.length;i++){
             const {name,date}=finalTodo[i]
             html+=`<div>${name}</div>
             <div>${date}</div>
-            <button class="delete" 
+            <button class="delete js-task-delete" 
             onclick="finalTodo.splice(${i},1);
             updateDiv('final');">Delete</button>`;
         }
         */
         divElement.innerHTML=html;
+        document.querySelectorAll('.js-task-delete').forEach((deleteButton,index)=>{
+            deleteButton.addEventListener('click',()=>{
+                finalTodo.splice(index,1);
+                updateDiv('final');
+            })
+        })
     }else{
         const divElement=document.querySelector('.js-div-todo2');
         divElement.innerHTML='';
