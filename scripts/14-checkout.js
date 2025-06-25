@@ -1,5 +1,6 @@
 import {cart} from './cart.js';
 import { products } from './products.js';
+import { formatCurrency } from './utils/money.js';
 const ordersummaryDivElement=document.querySelector('.js-order-summary');
 let html='';
 cart.forEach(cartItem=>{
@@ -18,7 +19,7 @@ cart.forEach(cartItem=>{
                   ${product.name}
                 </div>
                 <div class="product-price">
-                  $${(product.priceCents/100).toFixed(2)}
+                  $${formatCurrency(product.priceCents)}
                 </div>
                 <div class="product-quantity">
                   <span>
@@ -38,7 +39,7 @@ cart.forEach(cartItem=>{
                   Choose a delivery option:
                 </div>
                 <div class="delivery-option">
-                  <input type="radio" checked="" class="delivery-option-input" name="delivery-option-1">
+                  <input type="radio" checked="" class="delivery-option-input" name="delivery-option-${product.id}">
                   <div>
                     <div class="delivery-option-date">
                       Tuesday, June 21
@@ -49,7 +50,7 @@ cart.forEach(cartItem=>{
                   </div>
                 </div>
                 <div class="delivery-option">
-                  <input type="radio" class="delivery-option-input" name="delivery-option-1">
+                  <input type="radio" class="delivery-option-input" name="delivery-option-${product.id}">
                   <div>
                     <div class="delivery-option-date">
                       Wednesday, June 15
@@ -60,7 +61,7 @@ cart.forEach(cartItem=>{
                   </div>
                 </div>
                 <div class="delivery-option">
-                  <input type="radio" class="delivery-option-input" name="delivery-option-1">
+                  <input type="radio" class="delivery-option-input" name="delivery-option-${product.id}">
                   <div>
                     <div class="delivery-option-date">
                       Monday, June 13
