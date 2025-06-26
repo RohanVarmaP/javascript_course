@@ -1,4 +1,4 @@
-import {cart, removeFromCart} from './cart.js';
+import {cart, removeFromCart, updateDeliveryOption} from './cart.js';
 import { products } from './products.js';
 import formatCurrency from './utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
@@ -23,7 +23,7 @@ const deliveryOptionsHtml=(product,cartItem)=>{
       deliveryOption.id: ${deliveryOption.id}, 
       so is checked is ${isChecked}`);
     html+=`
-                    <div class="delivery-option">
+                    <div class="delivery-option js-delivery-option" data-product-id="${product.id}" data-delivery-option-id="${deliveryOption.id}">
                       <input type="radio" ${isChecked? 'Checked' : ''} class="delivery-option-input" name="delivery-option-${product.id}">
                       <div>
                         <div class="delivery-option-date">
@@ -45,6 +45,7 @@ const ordersummaryDivElement=document.querySelector('.js-order-summary');
 cart.forEach(cartItem=>{
     const product=products.filter(product=>product.id===cartItem.id)[0];
     const deliveryOption=deliveryOptions.filter(option=>option.id===cartItem.deliveryOptionId)[0];
+    console.log(deliveryOption);
     const today=dayjs();
     const dateOption=today.add(deliveryOption.deliveryDays,'days');
     const dateString=dateOption.format('dddd, MMMM, D');
@@ -95,4 +96,8 @@ document.querySelectorAll('.js-delete-link').forEach(spanElement=>{
     })
 })
 
-
+document.querySelectorAll('.js-delivery-option').forEach(radioElement=>{
+  radioElement.addEventListener('click',()=>{
+    updateDeliveryOption(radioElement.dataset.productId,Number(radioElement.dataset.deliveryOptionId));
+  })
+})
