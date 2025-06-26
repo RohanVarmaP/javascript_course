@@ -4,6 +4,7 @@ import formatCurrency from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import {deliveryOptions, matchDeliveryOption} from '../../data/deliveryOptions.js';
 import { renderPaymentSummary } from './paymentSummary.js';
+import { renderHeaderSummary } from './headerSummary.js';
 
 export const renderOrderSummary=()=>{
   const deliveryOptionsHtml=(product,cartItem)=>{
@@ -61,7 +62,7 @@ export const renderOrderSummary=()=>{
                   </div>
                   <div class="product-quantity">
                     <span>
-                      Quantity: <span class="quantity-label">${cartItem.quantity}}</span>
+                      Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                     </span>
                     <span class="update-quantity-link link-primary">
                       Update
@@ -87,8 +88,9 @@ export const renderOrderSummary=()=>{
           console.log(spanElement.dataset.productId);
           removeFromCart(spanElement.dataset.productId);
           console.log(cart);
-          document.querySelector(`.js-cart-container-${spanElement.dataset.productId}`).remove();
+          renderOrderSummary();
           renderPaymentSummary();
+          renderHeaderSummary();
       })
   })
 
