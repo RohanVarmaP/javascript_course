@@ -3,11 +3,7 @@ import { products, matchProduct } from '../../data/products.js';
 import formatCurrency from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import {deliveryOptions, matchDeliveryOption} from '../../data/deliveryOptions.js';
-
-const today=dayjs();
-const firstdate=today.add(7,'days');
-console.log(firstdate);
-console.log(firstdate.format('dddd, MMMM D'));
+import { renderPaymentSummary } from './paymentSummary.js';
 
 export const renderOrderSummary=()=>{
   const deliveryOptionsHtml=(product,cartItem)=>{
@@ -92,6 +88,7 @@ export const renderOrderSummary=()=>{
           removeFromCart(spanElement.dataset.productId);
           console.log(cart);
           document.querySelector(`.js-cart-container-${spanElement.dataset.productId}`).remove();
+          renderPaymentSummary();
       })
   })
 
@@ -99,6 +96,7 @@ export const renderOrderSummary=()=>{
     radioElement.addEventListener('click',()=>{
       updateDeliveryOption(radioElement.dataset.productId,Number(radioElement.dataset.deliveryOptionId));
       renderOrderSummary();
+      renderPaymentSummary();
     })
   })
 }
