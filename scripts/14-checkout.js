@@ -1,3 +1,4 @@
 import { renderOrderSummary } from "./checkout/orderSummary.js";
-console.log("helloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo");
+import {renderPaymentSummary} from './checkout/paymentSummary.js'
 renderOrderSummary();
+renderPaymentSummary();

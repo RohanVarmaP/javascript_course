@@ -15,3 +15,7 @@ export const deliveryOptions=[
         priceCents:999
     }
 ];
+
+export const matchDeliveryOption= deliveryOptionId=>{
+    return deliveryOptions.filter(option=>option.id===deliveryOptionId)[0]|| deliveryOptions[0]
+}
