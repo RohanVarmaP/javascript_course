@@ -1,4 +1,4 @@
-export const cart=[
+export let cart=[
     {
         "id": "54e0eccd-8f36-462b-b68a-8182611d9add",
         "quantity": 1
@@ -38,11 +38,11 @@ export const cart=[
 ];
 
 
-export const addToCart=buttonElement=>{
-  const addQuantity=Number(document.querySelector(`.js-product-quantity-${buttonElement.dataset.productId}`).value);
+export const addToCart=productId=>{
+  const addQuantity=Number(document.querySelector(`.js-product-quantity-${productId}`).value);
   let matchingItem;
   cart.forEach((cartItem)=>{
-      if(cartItem.id===buttonElement.dataset.productId){
+      if(cartItem.id===productId){
           matchingItem=cartItem;
       }
   });
@@ -50,8 +50,18 @@ export const addToCart=buttonElement=>{
       matchingItem.quantity+=addQuantity;
   }else{
       cart.push({
-          id:buttonElement.dataset.productId,
+          id:productId,
           quantity:addQuantity
       });
   }
+}
+
+export const removeFromCart=productId=>{
+  const newCart=[];
+  cart.forEach(cartItem=>{
+    if(cartItem.id!==productId){
+        newCart.push(cartItem);
+    }
+  })
+  cart=newCart;
 }

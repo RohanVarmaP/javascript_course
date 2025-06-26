@@ -78,7 +78,7 @@ const updateCartQuantity=()=>{
 document.querySelectorAll('.js-add-to-cart').forEach((buttonElement)=>{
     buttonElement.addEventListener('click',()=>{
         addSetTimeOut(buttonElement);
-        addToCart(buttonElement);
+        addToCart(buttonElement.dataset.productId);
         updateCartQuantity();
         console.log(myCart);
     })
