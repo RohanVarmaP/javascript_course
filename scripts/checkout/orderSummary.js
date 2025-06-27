@@ -45,7 +45,7 @@ export const renderOrderSummary=()=>{
       const today=dayjs();
       const dateOption=today.add(deliveryOption.deliveryDays,'days');
       const dateString=dateOption.format('dddd, MMMM, D');
-      ordersummaryDivElement.innerHTML+=`<div class="cart-item-container js-cart-container-${product.id}">
+      ordersummaryDivElement.innerHTML+=`<div class="cart-item-container js-cart-item-container js-cart-container-${product.id}">
               <div class="delivery-date">
                 Delivery date: ${dateString}
               </div>
@@ -60,14 +60,14 @@ export const renderOrderSummary=()=>{
                   <div class="product-price">
                     $${formatCurrency(product.priceCents)}
                   </div>
-                  <div class="product-quantity">
+                  <div class="product-quantity js-product-quantity-${product.id}">
                     <span>
                       Quantity: <span class="quantity-label">${cartItem.quantity}</span>
                     </span>
                     <span class="update-quantity-link link-primary">
                       Update
                     </span>
-                    <span class="delete-quantity-link link-primary js-delete-link" data-product-id="${product.id}">
+                    <span class="delete-quantity-link js-delete-quantity-link-${product.id} link-primary js-delete-link" data-product-id="${product.id}">
                       Delete
                     </span>
                   </div>
