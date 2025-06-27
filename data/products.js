@@ -704,3 +704,7 @@ export const products = [
 export const matchProduct=productID=>{
   return products.filter(product=>product.id===productID)[0];
 }
+
+// const date=new Date();
+// console.log(date);
+// console.log(date.toLocaleTimeString());
