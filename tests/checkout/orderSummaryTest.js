@@ -1,5 +1,5 @@
 import {renderOrderSummary} from '../../scripts/checkout/orderSummary.js';
-import { loadProducts } from '../../data/products.js';
+import { loadProducts, loadProductsFetch } from '../../data/products.js';
 import { loadFromStorage,cart } from '../../data/cart.js';
 
 describe('Test Suite: renderOrderSummary',()=>{
@@ -13,9 +13,9 @@ describe('Test Suite: renderOrderSummary',()=>{
     const productId8="3fdfe8d6-9a15-4979-b459-585b0d0545b9";
     const productId9="58b4fc92-e98c-42aa-8c55-b6b79996769a";
     beforeAll((done)=>{
-        loadProducts(()=>{
+        loadProductsFetch().then(()=>{
             done();
-        });
+        })
     });
     beforeEach(()=>{
         spyOn(localStorage,'setItem');
