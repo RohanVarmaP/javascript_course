@@ -120,3 +120,15 @@ export function loadCart(fun){
     xhr.open('GET','https://supersimplebackend.dev/cart');
     xhr.send();
 }
+
+export function loadCartFetch(){
+    console.log("started fetch cart");
+    const promise=fetch('https://supersimplebackend.dev/cart').then((response)=>{
+        console.log(response);
+        return response.text();
+    }).then((cartData)=>{
+        console.log('cart loaded fetch');
+        console.log(cartData);
+    })
+    return promise;
+}
