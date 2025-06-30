@@ -8,9 +8,15 @@ import { loadCart, loadCartFetch } from "../data/cart.js";
 
 async function loadPage(){
     console.log('load page');
-    await loadProductsFetch();
-    await loadCartFetch();
-
+    try{
+        // throw TypeError;
+        await loadProductsFetch();
+        await loadCartFetch();
+    }catch(error) {
+        console.log('error');
+        console.log(error);
+    }
+    
     renderHeaderSummary();
     renderOrderSummary();
     renderPaymentSummary();
@@ -24,26 +30,27 @@ loadPage().then((value)=>{
 
 
 
+/*
+async function loadPage(){
+    console.log('load page');
+    await loadProductsFetch();
+    await new Promise((resolve)=>{
+        loadCart(()=>{
+            resolve();
+        })
+    });
 
-// async function loadPage(){
-//     console.log('load page');
-//     await loadProductsFetch();
-//     await new Promise((resolve)=>{
-//         loadCart(()=>{
-//             resolve();
-//         })
-//     });
+    renderHeaderSummary();
+    renderOrderSummary();
+    renderPaymentSummary();
 
-//     renderHeaderSummary();
-//     renderOrderSummary();
-//     renderPaymentSummary();
-
-//     return "completed async";
-// }
-// loadPage().then((value)=>{
-//     console.log('next step async');
-//     console.log(value);
-// });
+    return "completed async";
+}
+loadPage().then((value)=>{
+    console.log('next step async');
+    console.log(value);
+});
+*/
 
 // Promise.all([
 //     loadProductsFetch(),
@@ -90,13 +97,12 @@ console.log('starting project');
 
 */
 
-/*
-loadProducts(()=>{
-    loadCart(()=>{
-        renderHeaderSummary();
-        renderOrderSummary();
-        renderPaymentSummary();
-    });
-});
-console.log("completed rendering");
-*/
+
+// loadProducts(()=>{
+//     loadCart(()=>{
+//         renderHeaderSummary();
+//         renderOrderSummary();
+//         renderPaymentSummary();
+//     });
+// });
+// console.log("completed rendering");

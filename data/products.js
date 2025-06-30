@@ -51,6 +51,9 @@ export function loadProductsFetch(){
       return new Product(productDetails);
     });
     console.log("projects loaded");
+  }).catch((error)=>{
+    console.log('error. please try again later.');
+    console.log(error);
   });
   return promise;
 }
@@ -73,6 +76,10 @@ export function loadProducts(fun){
     console.log(products)
     fun();
   })
+  xhr.addEventListener('error',(error)=>{
+    console.log('please.try again later');
+    console.log(error);
+  });
 
   xhr.open('GET','https://supersimplebackend.dev/products');
   xhr.send();
