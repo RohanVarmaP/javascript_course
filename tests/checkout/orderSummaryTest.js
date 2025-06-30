@@ -1,4 +1,5 @@
 import {renderOrderSummary} from '../../scripts/checkout/orderSummary.js';
+import { loadProducts } from '../../data/products.js';
 import { loadFromStorage,cart } from '../../data/cart.js';
 
 describe('Test Suite: renderOrderSummary',()=>{
@@ -11,10 +12,17 @@ describe('Test Suite: renderOrderSummary',()=>{
     const productId7="77919bbe-0e56-475b-adde-4f24dfed3a04";
     const productId8="3fdfe8d6-9a15-4979-b459-585b0d0545b9";
     const productId9="58b4fc92-e98c-42aa-8c55-b6b79996769a";
+    beforeAll((done)=>{
+        document.querySelector('.js-test-container').innerHTML=`
+        <div class="js-header-summary"><div class="checkout-header-middle-section"> Checkout (<a class="return-to-home-link js-return-to-home-link" href="14-amazon.html"> items</a>) </div></div><div class="js-order-summary"><div class="js-product-grid"><p>Hello</p></div></div><div class="js-payment-summary"></div>`;
+        loadProducts(()=>{
+            done();
+        });
+    });
     beforeEach(()=>{
         spyOn(localStorage,'setItem');
         document.querySelector('.js-test-container').innerHTML=`
-        <div class="js-header-summary"><div class="checkout-header-middle-section"> Checkout (<a class="return-to-home-link js-return-to-home-link" href="14-amazon.html"> items</a>) </div></div><div class="js-order-summary"></div><div class="js-payment-summary"></div>`;
+        <div class="js-header-summary"><div class="checkout-header-middle-section"> Checkout (<a class="return-to-home-link js-return-to-home-link" href="14-amazon.html"> items</a>) </div></div><div class="js-order-summary"><div class="js-product-grid"><p>Hello</p></div></div><div class="js-payment-summary"></div>`;
         spyOn(localStorage,'getItem').and.callFake(()=>{
             return JSON.stringify([
                 {

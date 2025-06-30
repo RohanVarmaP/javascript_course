@@ -49,12 +49,12 @@ export function loadProducts(fun){
       return new Product(productDetails);
     });
     console.log("projects loaded");
+    console.log(products)
     fun();
   })
 
   xhr.open('GET','https://supersimplebackend.dev/products');
   xhr.send();
-
 }
 
 
@@ -723,6 +723,8 @@ export function loadProducts(fun){
 //   }
 //   return new Product(productDetails);
 // });
+
+
 export const matchProduct=productID=>{
   return products.filter(product=>product.id===productID)[0];
 }
