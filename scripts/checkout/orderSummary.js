@@ -39,7 +39,7 @@ export const renderOrderSummary=()=>{
   const ordersummaryDivElement=document.querySelector('.js-order-summary');
   ordersummaryDivElement.innerHTML='';
   cart.forEach(cartItem=>{
-      const product=matchProduct(cartItem.id);
+      const product=matchProduct(cartItem.productId);
       const deliveryOption=matchDeliveryOption(cartItem.deliveryOptionId);
       console.log(deliveryOption);
       const today=dayjs();

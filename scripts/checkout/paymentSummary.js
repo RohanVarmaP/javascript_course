@@ -8,7 +8,7 @@ export const renderPaymentSummary=()=>{
     let productPriceCents=0;
     let shippingPriceCents=0;
     cart.forEach(cartItem => {
-        const product=matchProduct(cartItem.id);
+        const product=matchProduct(cartItem.productId);
         const deliveryOption=matchDeliveryOption(cartItem.deliveryOptionId)
         console.log(`product:
             price: ${product.priceCents}
@@ -55,8 +55,21 @@ export const renderPaymentSummary=()=>{
             <div class="payment-summary-money">$${formatCurrency(totalCents)}</div>
           </div>
 
-          <button class="place-order-button button-primary">
+          <button class="place-order-button button-primary js-place-order-button">
             Place your order
           </button>
     `;
+    document.querySelector('.js-place-order-button').addEventListener('click',async ()=>{
+      const responce=await fetch('https://supersimplebackend.dev/orders',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          cart:cart
+        })
+      })
+      const order=await responce.json();
+      console.log(order);
+    });
 }

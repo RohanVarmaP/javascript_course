@@ -24,47 +24,47 @@ describe('Test Suite: renderOrderSummary',()=>{
         spyOn(localStorage,'getItem').and.callFake(()=>{
             return JSON.stringify([
                 {
-                    "id": productId1,
+                    "productId": productId1,
                     "quantity": 1,
                     'deliveryOptionId':1
                 },
                 {
-                    "id": productId2,
+                    "productId": productId2,
                     "quantity": 3,
                     'deliveryOptionId':2
                 },
                 {
-                    "id": productId3,
+                    "productId": productId3,
                     "quantity": 4,
                     'deliveryOptionId':3
                 },
                 {
-                    "id": productId4,
+                    "productId": productId4,
                     "quantity": 5,
                     'deliveryOptionId':2
                 },
                 {
-                    "id": productId5,
+                    "productId": productId5,
                     "quantity": 1,
                     'deliveryOptionId':1
                 },
                 {
-                    "id": productId6,
+                    "productId": productId6,
                     "quantity": 1,
                     'deliveryOptionId':2
                 },
                 {
-                    "id": productId7,
+                    "productId": productId7,
                     "quantity": 1,
                     'deliveryOptionId':3
                 },
                 {
-                    "id": productId8,
+                    "productId": productId8,
                     "quantity": 2,
                     'deliveryOptionId':1
                 },
                 {
-                    "id": productId9,
+                    "productId": productId9,
                     "quantity": 3,
                     'deliveryOptionId':3
                 }
