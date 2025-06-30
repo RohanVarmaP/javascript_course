@@ -1,5 +1,4 @@
 import {formatCurrency} from '../scripts/utils/money.js';
-import {renderProductGrid} from '../scripts/14-amazon.js';
 class Product{
   id;
   image;

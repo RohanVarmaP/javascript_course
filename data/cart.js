@@ -108,3 +108,15 @@ export const updateDeliveryOption=(productId,deliveryOptionId)=>{
     console.log(`after update deliveryOptionId: ${typeof matchingItem.deliveryOptionId}`);
     // console.log(`after update: ${matchingItem}`);
 }
+
+export function loadCart(fun){
+    const xhr=new XMLHttpRequest();
+
+    xhr.addEventListener('load',()=>{
+        console.log(xhr.response);
+        console.log('cart loaded');
+        fun();
+    });
+    xhr.open('GET','https://supersimplebackend.dev/cart');
+    xhr.send();
+}

@@ -13,8 +13,6 @@ describe('Test Suite: renderOrderSummary',()=>{
     const productId8="3fdfe8d6-9a15-4979-b459-585b0d0545b9";
     const productId9="58b4fc92-e98c-42aa-8c55-b6b79996769a";
     beforeAll((done)=>{
-        document.querySelector('.js-test-container').innerHTML=`
-        <div class="js-header-summary"><div class="checkout-header-middle-section"> Checkout (<a class="return-to-home-link js-return-to-home-link" href="14-amazon.html"> items</a>) </div></div><div class="js-order-summary"><div class="js-product-grid"><p>Hello</p></div></div><div class="js-payment-summary"></div>`;
         loadProducts(()=>{
             done();
         });
